@@ -12,7 +12,7 @@ def load_config():
 def log_print(text, type='info'):
     print('[' + datetime.now().strftime("%H:%M:%S") + '] ' + text)
 
-def tg_api(method, token=CONFIG['tg_token'], **parameters):
+def tg_api(method, token, **parameters):
     url = 'https://api.telegram.org/bot' + token + '/' + method
 
     r = req.post(url, params=parameters).json()
@@ -29,7 +29,7 @@ def tg_api(method, token=CONFIG['tg_token'], **parameters):
 
     return r['result']
 
-def vk_api(method, token=CONFIG['vk_token'], **parameters):
+def vk_api(method, token, **parameters):
     url = 'https://api.vk.com/method/' + method
     parameters['access_token'] = token
     if 'v' not in parameters:
