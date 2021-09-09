@@ -3,9 +3,11 @@ import requests as req
 import json
 from typing import Iterable, Any, Tuple
 
+CONFIG = None
 
-with open('config.json') as f:
-    CONFIG = json.load(f)
+def load_config():
+    with open('config.json') as f:
+        CONFIG = json.load(f)
 
 def log_print(text, type='info'):
     print('[' + datetime.now().strftime("%H:%M:%S") + '] ' + text)
